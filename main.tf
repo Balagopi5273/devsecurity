@@ -18,8 +18,8 @@ variable "key_name" {
     type = string
 }
 
-resource "aws_security_group" "jenkins_sg" {
-  name        = "jenkins_sg"
+resource "aws_security_group" "existing_jenkins_sg" {
+  name        = "existing_jenkins_sg"
   description = "Allow Jenkins Traffic"
   vpc_id      = var.vpc_id
 
