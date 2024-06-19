@@ -93,8 +93,8 @@ resource "aws_iam_role" "existing_test_role" {
 EOF
 }
 
-resource "aws_iam_instance_profile" "test_profile" {
-  name = "test_profile"
+resource "aws_iam_instance_profile" "test_profile_new" {
+  name = "test_profile_new"
   role = "${aws_iam_role.existing_test_role.name}"
 }
 
