@@ -73,8 +73,8 @@ data "aws_ami" "amazon_linux" {
   owners = ["amazon"] # Canonical
 }
 
-resource "aws_iam_role" "test_role" {
-  name = "test_role"
+resource "aws_iam_role" "existing_test_role" {
+  name = "existing_test_role"
 
   assume_role_policy = <<EOF
 {
@@ -95,12 +95,12 @@ EOF
 
 resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
-  role = "${aws_iam_role.test_role.name}"
+  role = "${aws_iam_role.existing_test_role.name}"
 }
 
 resource "aws_iam_role_policy" "test_policy" {
   name = "test_policy"
-  role = "${aws_iam_role.test_role.id}"
+  role = "${aws_iam_role.existing_test_role.id}"
 
   policy = <<EOF
 {
