@@ -121,7 +121,7 @@ resource "aws_instance" "web" {
   instance_type   = "t2.medium" 
   key_name        = var.key_name
   iam_instance_profile = "${aws_iam_instance_profile.test_profile.name}"
-  security_groups = [aws_security_group.jenkins_sg.name]
+  security_groups = [aws_security_group.existing_jenkins_sg.name]
   user_data       = "${file("install_jenkins.sh")}"
   tags = {
     Name = "Jenkins"
