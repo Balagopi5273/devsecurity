@@ -117,10 +117,10 @@ EOF
 }
 
 resource "aws_instance" "web" {
-  ami             = "ami-0c55b159cbfafe1f0"
+  ami             = "ami-08a0d1e16fc3f61ea"
   instance_type   = "t2.medium" 
   key_name        = var.key_name
-  iam_instance_profile = "${aws_iam_instance_profile.test_profile.name}"
+  iam_instance_profile = "${aws_iam_instance_profile.test_profile_new.name}"
   security_groups = [aws_security_group.existing_jenkins_sg.name]
   user_data       = "${file("install_jenkins.sh")}"
   tags = {
