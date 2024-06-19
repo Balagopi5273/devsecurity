@@ -13,7 +13,7 @@ pipeline {
             steps {		
 				withCredentials([string(credentialsId: 'Snyk_token', variable: 'SNYK_TOKEN')]) {
 					sh 'mvn snyk:test -fn'
-				}asgbuggy
+				}
 			}
     }
 	stage('Build') { 
